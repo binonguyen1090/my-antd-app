@@ -5,6 +5,11 @@ import Layout from "antd/es/layout";
 import Title from 'antd/lib/typography/Title';
 import Avatar from "antd/es/avatar";
 import { UserOutlined } from "@ant-design/icons";
+import Menu from "antd/es//menu";
+import SubMenu from 'antd/lib/menu/SubMenu';
+import {
+  MailOutlined
+} from "@ant-design/icons";
 
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -15,17 +20,32 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Header style={{ background: "green" }}>
+        <Header style={{ background: "green", padding: "10px" }}>
+          <Avatar style={{ float: "right" }} icon={<UserOutlined />} />
 
-          <Avatar style={{ float: "right"}} icon={<UserOutlined />} />
-          
-          
           <Title style={{ color: "white" }} level={3}>
             Brand
           </Title>
         </Header>
         <Layout>
-          <Sider style={{ background: "red" }}>Sider</Sider>
+          <Sider style={{ background: "red" }}>
+            <Menu defaultSelectedKeys={["Dashboard"]} mode="inline">
+              <Menu.Item key="Dashboard" >Dashboard</Menu.Item>
+              <SubMenu
+                title={
+                  <span>
+                    <MailOutlined />
+                    <span>About Us</span>
+                  </span>
+                }
+              >
+                <Menu.ItemGroup key="AboutUs" title="Country">
+                  <Menu.Item>America</Menu.Item>
+                  <Menu.Item>England</Menu.Item>
+                </Menu.ItemGroup>
+              </SubMenu>
+            </Menu>
+          </Sider>
           <Layout>
             <Content>Content</Content>
             <Footer>Footer</Footer>
