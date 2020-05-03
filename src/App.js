@@ -10,6 +10,7 @@ import SubMenu from 'antd/lib/menu/SubMenu';
 import {
   MailOutlined
 } from "@ant-design/icons";
+import  Breadcrumb from 'antd/es/breadcrumb';
 
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -30,7 +31,7 @@ function App() {
         <Layout>
           <Sider style={{ background: "red" }}>
             <Menu defaultSelectedKeys={["Dashboard"]} mode="inline">
-              <Menu.Item key="Dashboard" >Dashboard</Menu.Item>
+              <Menu.Item key="Dashboard">Dashboard</Menu.Item>
               <SubMenu
                 title={
                   <span>
@@ -47,8 +48,17 @@ function App() {
             </Menu>
           </Sider>
           <Layout>
-            <Content>Content</Content>
-            <Footer>Footer</Footer>
+            <Content style={{ padding: "0 50px" }}>
+              <Breadcrumb style={{ margin: "16px 0" }}>
+                <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+              </Breadcrumb>
+              <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
+                Content
+              </div>
+            </Content>
+            <Footer style={{ textAlign: "center" }}>
+              Ant Design ©2018 Created by practice
+            </Footer>
           </Layout>
         </Layout>
       </Layout>
