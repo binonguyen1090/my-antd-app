@@ -11,6 +11,8 @@ import {
   MailOutlined
 } from "@ant-design/icons";
 import  Breadcrumb from 'antd/es/breadcrumb';
+import Tabs from 'antd/es/tabs';
+const { TabPane } = Tabs;
 
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -28,6 +30,17 @@ function App() {
             Brand
           </Title>
         </Header>
+        <Tabs defaultActiveKey="1" style={{ float: "right" }}>
+          <TabPane tab="Tab 1" key="1">
+            Content of Tab Pane 1
+          </TabPane>
+          <TabPane tab="Tab 2" key="2">
+            Content of Tab Pane 2
+          </TabPane>
+          <TabPane tab="Tab 3" key="3">
+            Content of Tab Pane 3
+          </TabPane>
+        </Tabs>
         <Layout>
           <Sider style={{ background: "red" }}>
             <Menu defaultSelectedKeys={["Dashboard"]} mode="inline">
