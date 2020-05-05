@@ -12,11 +12,9 @@ import {
 } from "@ant-design/icons";
 import  Breadcrumb from 'antd/es/breadcrumb';
 import Tabs from 'antd/es/tabs';
-import Tree from "antd/es/tree";
-import { Batsmen, Bowler } from './Cricketer';
+import { Batsmen, Bowler } from "./Cricketer";
 
 const { TabPane } = Tabs;
-const { TreeNode } = Tree;
 
 
 
@@ -24,8 +22,7 @@ const { Header, Footer, Sider, Content } = Layout;
 
 
 function App() {
-  let bestBatsmen = new Batsmen("Smith", "AUS", 6973);
-  let bestBowler = new Bowler("Pat", "AUS", 123);
+  
   return (
     <div className="App">
       <Layout>
@@ -72,32 +69,10 @@ function App() {
                 <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
               </Breadcrumb>
               <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
-                <Tree key="0" showLine defaultExpandedKeys={["0-0-0"]}>
-                  <TreeNode title={bestBatsmen.getName()} key="0-0-0">
-                    <TreeNode
-                      title={"Team-" + bestBatsmen.getTeamName()}
-                      key="0-0-0-1"
-                      isLeaf
-                    />
-                    <TreeNode
-                      title={"Runs-" + bestBatsmen.getRuns()}
-                      key="0-0-0-2"
-                      isLeaf
-                    />
-                  </TreeNode>
-                  <TreeNode title={bestBowler.getName()} key="0-0-1">
-                    <TreeNode
-                      title={"Team-" + bestBowler.getTeamName()}
-                      key="0-0-1-1"
-                      isLeaf
-                    />
-                    <TreeNode
-                      title={"Runs-" + bestBowler.getWickets()}
-                      key="0-0-1-2"
-                      isLeaf
-                    />
-                  </TreeNode>
-                </Tree>
+
+                <Batsmen name="Smith" team="AUS" runs="6973" />
+                <Bowler name="Pat" team="AUS" wickets="123" />
+                
               </div>
             </Content>
             <Footer style={{ textAlign: "center" }}>
