@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from "antd/es/button";
 import './App.css';
 import Layout from "antd/es/layout";
@@ -13,6 +13,7 @@ import {
 import  Breadcrumb from 'antd/es/breadcrumb';
 import Tabs from 'antd/es/tabs';
 import { Cricketer, ODICareer, Batting, Bowling, TestCareer } from "./Cricketer";
+import CareerDetails from './CareerDetails';
 
 const { TabPane } = Tabs;
 
@@ -22,7 +23,20 @@ const { Header, Footer, Sider, Content } = Layout;
 
 
 function App() {
-  
+  // const [stateValue, setStateValue] = useState('')
+  // const [stateBool, setStateBool] = useState(false)
+  const [selectedPlayer, setselectedPlayer] = useState("");
+  const [visible, setvisible] = useState(false);
+  const onselect = name => {
+    setselectedPlayer(name)
+    setvisible(true)
+  }
+  const ViewProfileButton = ({name}) => {
+    return <Button type="dashed" style={{float:'right'}} onClick={() => onselect(name)}> View Profile >>> </Button>
+  }
+  const onClose = () => {
+    setvisible(false)
+  }
   return (
     <div className="App">
       <Layout>
@@ -69,26 +83,32 @@ function App() {
                 <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
               </Breadcrumb>
               <div style={{ background: "#fff", padding: 24, minHeight: 480 }}>
-
                 {/* <Batsmen name="Smith" team="AUS" runs="6973" />
                 <Bowler name="Pat" team="AUS" wickets="123" /> */}
-                <Cricketer name="Virat Kholi" team="IND" avatarSrc='./cat.png'>
-                  <ODICareer matches='239'>
-                    <Batting runs='11,520' score='183'/>
+                <Cricketer name="Virat Kholi" team="IND" avatarSrc="./cat.png">
+                  <ODICareer matches="239">
+                    <Batting runs="11,520" score="183" />
                     <br></br>
-                    <Bowling wickets='4' bowlingAvg='166.25' />
+                    <Bowling wickets="4" bowlingAvg="166.25" />
                   </ODICareer>
-                  <TestCareer matches='79'>
-                    <Batting runs='6,749' score='243' />
+                  <TestCareer matches="79">
+                    <Batting runs="6,749" score="243" />
                   </TestCareer>
+                  <ViewProfileButton name="Virat Kholi" />
                 </Cricketer>
-                <Cricketer name='J Bumrah' team='IND' avatarSrc='./bb.jpg'>
-                  <TestCareer matches='12'>
-                    <Bowling wickets='62' bowlingAvg='20.63' />
+                <Cricketer name="J Bumrah" team="IND" avatarSrc="./bb.jpg">
+                  <TestCareer matches="12">
+                    <Bowling wickets="62" bowlingAvg="20.63" />
                   </TestCareer>
+                  <ViewProfileButton name="J Bumrah" />
                 </Cricketer>
               </div>
             </Content>
+            <CareerDetails
+              player={selectedPlayer}
+              visible={visible}
+              onClose={onClose}
+            />
             <Footer style={{ textAlign: "center" }}>
               Ant Design ©2018 Created by practice
             </Footer>
