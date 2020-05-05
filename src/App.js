@@ -12,7 +12,7 @@ import {
 } from "@ant-design/icons";
 import  Breadcrumb from 'antd/es/breadcrumb';
 import Tabs from 'antd/es/tabs';
-import { Batsmen, Bowler } from "./Cricketer";
+import { Cricketer, ODICareer, Batting, Bowling, TestCareer } from "./Cricketer";
 
 const { TabPane } = Tabs;
 
@@ -68,11 +68,25 @@ function App() {
               <Breadcrumb style={{ margin: "16px 0" }}>
                 <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
               </Breadcrumb>
-              <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
+              <div style={{ background: "#fff", padding: 24, minHeight: 480 }}>
 
-                <Batsmen name="Smith" team="AUS" runs="6973" />
-                <Bowler name="Pat" team="AUS" wickets="123" />
-                
+                {/* <Batsmen name="Smith" team="AUS" runs="6973" />
+                <Bowler name="Pat" team="AUS" wickets="123" /> */}
+                <Cricketer name="Virat Kholi" team="IND" avatarSrc='./cat.png'>
+                  <ODICareer matches='239'>
+                    <Batting runs='11,520' score='183'/>
+                    <br></br>
+                    <Bowling wickets='4' bowlingAvg='166.25' />
+                  </ODICareer>
+                  <TestCareer matches='79'>
+                    <Batting runs='6,749' score='243' />
+                  </TestCareer>
+                </Cricketer>
+                <Cricketer name='J Bumrah' team='IND' avatarSrc='./bb.jpg'>
+                  <TestCareer matches='12'>
+                    <Bowling wickets='62' bowlingAvg='20.63' />
+                  </TestCareer>
+                </Cricketer>
               </div>
             </Content>
             <Footer style={{ textAlign: "center" }}>
