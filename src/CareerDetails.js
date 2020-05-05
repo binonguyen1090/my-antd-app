@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import React, { useEffect, useState } from "react";
 // import { Drawer, Skeleton } from "antd";
 import Drawer from "antd/es/drawer";
 // import useFetchData from "./service";
 
 const CareerDetails = ({player,visible,onClose}) => {
- 
+  useEffect(()=>{
+      console.log('useEffect', player)
+  })
   return (
     <Drawer
       destroyOnClose
