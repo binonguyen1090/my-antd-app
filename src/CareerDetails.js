@@ -2,32 +2,37 @@ import React, { useEffect, useState } from "react";
 // import React, { useEffect, useState } from "react";
 // import { Drawer, Skeleton } from "antd";
 import Drawer from "antd/es/drawer";
+import useFetchData from "./service";
 // import useFetchData from "./service";
 
 const CareerDetails = ({player,visible,onClose}) => {
   const [detail, setdetail] = useState({})
-  const {team, age, born, batting, bowling} = detail
-  useEffect(()=>{
-    async function fetchData() {
-      await fetch("./" + player.replace(" ", "_") + ".json").then(
-        (response) => {
-          response.json().then((data) => setdetail(data));
-        }
-      );
-    }
-    fetchData();
-      // console.log('useEffect', player);
-      return() =>{
-          console.log('return player first')
-      }
-  }, [player])
-  useEffect(()=>{
+  const [isLoading, output] = useFetchData(
+    "./" + player.replace(" ", "_") + ".json"
+  );
+
+  const { team, age, born, batting, bowling } = output;
+  // useEffect(()=>{
+  //   async function fetchData() {
+  //     await fetch("./" + player.replace(" ", "_") + ".json").then(
+  //       (response) => {
+  //         response.json().then((data) => setdetail(data));
+  //       }
+  //     );
+  //   }
+  //   fetchData();
+  //     // console.log('useEffect', player);
+  //     return() =>{
+  //         console.log('return player first')
+  //     }
+  // }, [player])
+  // useEffect(()=>{
     
-      console.log('mount')
-      return () => {
-        console.log("unmount");
-      };
-  }, [])
+  //     console.log('mount')
+  //     return () => {
+  //       console.log("unmount");
+  //     };
+  // }, [])
   return (
     <Drawer
       destroyOnClose

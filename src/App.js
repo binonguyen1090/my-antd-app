@@ -14,6 +14,7 @@ import  Breadcrumb from 'antd/es/breadcrumb';
 import Tabs from 'antd/es/tabs';
 import { Cricketer, ODICareer, Batting, Bowling, TestCareer } from "./Cricketer";
 import CareerDetails from './CareerDetails';
+import useFetchData from './service';
 
 const { TabPane } = Tabs;
 
