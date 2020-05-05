@@ -6,8 +6,26 @@ import Drawer from "antd/es/drawer";
 
 const CareerDetails = ({player,visible,onClose}) => {
   useEffect(()=>{
-      console.log('useEffect', player)
-  })
+    async function fetchData() {
+      await fetch("./" + player.replace(" ", "_") + ".json").then(
+        (response) => {
+          response.json().then((data) => console.log(data));
+        }
+      );
+    }
+    fetchData();
+      // console.log('useEffect', player);
+      return() =>{
+          console.log('return player first')
+      }
+  }, [player])
+  useEffect(()=>{
+    
+      console.log('mount')
+      return () => {
+        console.log("unmount");
+      };
+  }, [])
   return (
     <Drawer
       destroyOnClose
