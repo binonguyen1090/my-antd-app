@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+import {
+  LaptopOutlined,
+  NotificationOutlined,
+  HomeOutlined,
+} from "@ant-design/icons";
+import SearchForm from "./MenuAList/SearchForm";
+// import SearchResult from "./MenuAList/SearchResult";
 import Button from "antd/es/button";
 import './App.css';
 import Layout from "antd/es/layout";
@@ -53,6 +60,71 @@ function App() {
   };
   return (
     <div className="App">
+      <Layout>
+        <Header style={{ background: "white" }}>ant-react-redux</Header>
+      </Layout>
+
+      <Layout style={{ padding: "10px" }}>
+        <Sider width={200}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={["1"]}
+            defaultOpenKeys={["sub1"]}
+            style={{ height: "100%", borderRight: 0 }}
+          >
+            <SubMenu
+              key="sub1"
+              icon={<UserOutlined />}
+              title="Menu A"
+            ></SubMenu>
+            <SubMenu
+              key="sub2"
+              icon={<LaptopOutlined />}
+              title="Navigation One"
+            >
+              <Menu.Item key="5">option 1</Menu.Item>
+              <Menu.Item key="6">option 2</Menu.Item>
+            </SubMenu>
+          </Menu>
+        </Sider>
+        <Layout
+          style={{
+            padding: "10px 10px 24px 44px",
+            margin: { top: 0, right: 0, bottom: 0, left: 10 },
+          }}
+        >
+          <Breadcrumb style={{ margin: "16px 0" }}>
+            <Breadcrumb.Item>
+              <HomeOutlined />
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <UserOutlined />
+              Menu A
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>List</Breadcrumb.Item>
+          </Breadcrumb>
+          <Content
+            className="site-layout-background"
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: 280,
+            }}
+          >
+            <Title level={4}>Menu A</Title>
+  
+            <SearchForm />
+            {/* <SearchResult /> */}
+          </Content>
+        </Layout>
+      </Layout>
+
+
+
+
+
+
+
       <Layout>
         <Header style={{ background: "green", padding: "10px" }}>
           <Avatar style={{ float: "right" }} icon={<UserOutlined />} />
@@ -129,7 +201,7 @@ function App() {
           </Layout>
         </Layout>
       </Layout>
-      <Button onClick={onModal} type="primary" >
+      <Button onClick={onModal} type="primary">
         Modal Button
       </Button>
       <Todo />
