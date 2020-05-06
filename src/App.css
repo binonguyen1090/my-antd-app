@@ -4,10 +4,15 @@
   text-align: left;
 }
 
+.todoContainer {
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
 
 
-
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -40,4 +45,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

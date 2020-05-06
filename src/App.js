@@ -14,9 +14,12 @@ import  Breadcrumb from 'antd/es/breadcrumb';
 import Tabs from 'antd/es/tabs';
 import { Cricketer, ODICareer, Batting, Bowling, TestCareer } from "./Cricketer";
 import CareerDetails from './CareerDetails';
-import useFetchData from './service';
-
+// import useFetchData from './service';
+import Todo from './todo'
+import TodoItems from './todo_items'
 const { TabPane } = Tabs;
+
+
 
 
 
@@ -117,6 +120,8 @@ function App() {
         </Layout>
       </Layout>
       <Button type="primary">Button</Button>
+      <Todo />
+      <TodoItems />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import React, { useEffect, useState } from "react";
 // import { Drawer, Skeleton } from "antd";
 import Drawer from "antd/es/drawer";
@@ -7,7 +7,7 @@ import Skeleton from "antd/es/skeleton";
 // import useFetchData from "./service";
 
 const CareerDetails = ({player,visible,onClose}) => {
-  const [detail, setdetail] = useState({})
+  // const [detail, setdetail] = useState({})
   const [isLoading, output] = useFetchData(
     "./" + player.replace(" ", "_") + ".json"
   );
