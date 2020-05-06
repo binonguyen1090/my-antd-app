@@ -16,7 +16,7 @@ import { Cricketer, ODICareer, Batting, Bowling, TestCareer } from "./Cricketer"
 import CareerDetails from './CareerDetails';
 // import useFetchData from './service';
 import Todo from './todo'
-import TodoItems from './todo_items'
+import Modal from 'antd/es/modal';
 const { TabPane } = Tabs;
 
 
@@ -41,6 +41,16 @@ function App() {
   const onClose = () => {
     setvisible(false)
   }
+  const onModal = () => {
+    Modal.info({
+      title: "Hello",
+      content: (
+        <div>
+          <p>Congratulations, button works</p>
+        </div>
+      ),
+    });
+  };
   return (
     <div className="App">
       <Layout>
@@ -119,7 +129,9 @@ function App() {
           </Layout>
         </Layout>
       </Layout>
-      <Button type="primary">Button</Button>
+      <Button onClick={onModal} type="primary" >
+        Modal Button
+      </Button>
       <Todo />
     </div>
   );
