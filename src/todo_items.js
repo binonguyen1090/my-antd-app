@@ -1,18 +1,23 @@
 import React from "react";
-import Title from 'antd/lib/typography/Title';
+import { ScissorOutlined } from '@ant-design/icons';
+import List from 'antd/es/list';
 
 
-const TodoItems = () => {
 
+export default class TodoItem extends React.Component {
+    remove = () => {
+        this.props.removeTodo(this.props.index);
+    };
 
-    return (
-        <div>
-
-          
-            <Title level={4}>To do Items</Title>
-            
-        </div>
-    );
-};
-
-export default TodoItems
+    render() {
+        return (
+          <List.Item
+            actions={[
+              <ScissorOutlined onClick={this.remove} />
+            ]}
+          >
+            {this.props.content}
+          </List.Item>
+        );
+    }
+}

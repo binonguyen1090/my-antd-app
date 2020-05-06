@@ -121,7 +121,6 @@ function App() {
       </Layout>
       <Button type="primary">Button</Button>
       <Todo />
-      <TodoItems />
     </div>
   );
 }
