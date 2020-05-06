@@ -16,6 +16,7 @@ export default class SearchForm extends React.Component {
     this.state = {
       expand: false,
     };
+    this.toggle = this.toggle.bind(this)
   }
 
 //   handleSearch(e) {
@@ -43,9 +44,9 @@ export default class SearchForm extends React.Component {
     const expand = this.state.expand;
     const rowGutter = 40;
     const collapse = (
-      <a onClick={this.toggle}>
-        Collapse <Icon type={expand ? <UpOutlined /> : <DownOutlined />} />
-      </a>
+      <Button onClick={this.toggle}>
+         Collapse { expand ? <UpOutlined /> : <DownOutlined />}
+      </Button>
     );
     return (
         // <h2>From search form</h2>
@@ -70,7 +71,7 @@ export default class SearchForm extends React.Component {
               </FormItem>
             </Col>
           </Row>
-          {expand && (
+          {expand ? (
             <Row gutter={rowGutter}>
               <Col span={8} key={1}>
                 <FormItem {...formItemLayout} label="item1">
@@ -87,7 +88,7 @@ export default class SearchForm extends React.Component {
                 </FormItem>
               </Col>
             </Row>
-          )}
+          ): ""}
           <Row>
             <Col span={12} style={{ textAlign: "left" }}>
               <Button style={{ marginLeft: 8 }} onClick={this.handleReset}>
