@@ -1,4 +1,6 @@
 
+import { push } from "react-router-redux";
+import { connect } from "react-redux";
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import {
@@ -34,6 +36,16 @@ const { Header, Footer, Sider, Content } = Layout;
 
 
 function App() {
+  const moveActions = {
+    go: url => (dispatch) => {
+        return dispatch(push(url));
+    }
+};
+
+connect(
+    null,
+    {...moveActions}
+);
   // const [stateValue, setStateValue] = useState('')
   // const [stateBool, setStateBool] = useState(false)
   const [selectedPlayer, setselectedPlayer] = useState("");
@@ -73,7 +85,9 @@ function App() {
               defaultOpenKeys={["sub1"]}
               style={{ height: "100%", borderRight: 0 }}
             >
-              <Menu.Item key="sub1" icon={<UserOutlined/> }>Menu A</Menu.Item>
+              <Menu.Item key="sub1" icon={<UserOutlined />}>
+                Menu A
+              </Menu.Item>
               <SubMenu
                 key="sub2"
                 icon={<LaptopOutlined />}
@@ -108,8 +122,7 @@ function App() {
                 minHeight: 280,
               }}
             >
-              <Title level={4}>Menu A</Title>
-              
+                <Content className="content">{this.props.children}</Content>
             </Content>
           </Layout>
         </Layout>
