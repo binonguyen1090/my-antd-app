@@ -73,11 +73,7 @@ function App() {
               defaultOpenKeys={["sub1"]}
               style={{ height: "100%", borderRight: 0 }}
             >
-              <SubMenu
-                key="sub1"
-                icon={<UserOutlined />}
-                title={<Link to="/menuA">Menu A</Link>}
-              ></SubMenu>
+              <Menu.Item key="sub1" icon={<UserOutlined/> }>Menu A</Menu.Item>
               <SubMenu
                 key="sub2"
                 icon={<LaptopOutlined />}
@@ -86,12 +82,6 @@ function App() {
                 <Menu.Item key="5">option 1</Menu.Item>
                 <Menu.Item key="6">option 2</Menu.Item>
               </SubMenu>
-              <Switch>
-                <Route path="/menuA">
-                  <App />
-                </Route>
-
-              </Switch>
             </Menu>
           </Sider>
           <Layout
@@ -119,12 +109,75 @@ function App() {
               }}
             >
               <Title level={4}>Menu A</Title>
-              <SearchForm />
-              {/* <SearchResult /> */}
+              
             </Content>
           </Layout>
         </Layout>
-
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <Layout>
           <Header style={{ background: "green", padding: "10px" }}>
             <Avatar style={{ float: "right" }} icon={<UserOutlined />} />
