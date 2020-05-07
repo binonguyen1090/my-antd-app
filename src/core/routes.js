@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, IndexRedirect } from "react-router";
 import App from "../App";
-import PageNotFound from "/PageNotFound";
-import { MenuAList, MenuAForm } from "/menuA";
+import PageNotFound from "../PageNotFound";
+import  MenuAList from "../MenuAList";
 const routes = (getState) => (
   <Route path="/" component={App}>
     <IndexRedirect to={"menuA"} />
